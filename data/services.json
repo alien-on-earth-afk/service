@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Home Cleaning",
+        "description": "Professional cleaning services for your home.",
+        "price": 599,
+        "image": "https://source.unsplash.com/400x300/?cleaning"
+    },
+    {
+        "title": "Plumbing Services",
+        "description": "Fix leaks, clogs, and other plumbing issues.",
+        "price": 399,
+        "image": "https://source.unsplash.com/400x300/?plumber"
+    },
+    {
+        "title": "Electrical Services",
+        "description": "Emergency electrical services available 24/7.",
+        "price": 499,
+        "image": "https://source.unsplash.com/400x300/?electrician"
+    },
+    {
+        "title": "Painting Services",
+        "description": "Interior and exterior painting services.",
+        "price": 999,
+        "image": "https://source.unsplash.com/400x300/?painter"
+    }
+]

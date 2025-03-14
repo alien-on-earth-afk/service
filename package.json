@@ -1,19 +1,12 @@
 {
   "name": "services",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Your amazing project",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^4.21.2"
-  },
-  "description": ""
-},
-"scripts": {
-  "start": "node app.js"
+    "express": "^4.17.1"
+  }
 }

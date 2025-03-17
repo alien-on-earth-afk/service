@@ -1,0 +1,1118 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishwanandan Home Services - Professional Home Services</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- DarkReader Script --><!-- DarkReader Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/darkreader/4.9.58/darkreader.min.js"></script>
+
+<!-- Animate.css (Lightweight Animation Library) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+ <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- GSAP Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=1.0">
+
+
+</head>
+
+
+<body class="bg-gray-50">
+ <!-- Loader -->
+ <!-- Loader -->
+<div id="loaderContainer">
+    <div id="loadingBarContainer">
+        <div id="loadingBar"></div>
+    </div>
+</div>
+
+
+<!-- Navigation Bar -->
+<nav class="navbar-sticky bg-white shadow-md">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-2 md:py-3">
+            <div class="flex items-center">
+                <a href="#" class="text-xl md:text-2xl font-bold text-indigo-600 mobile-logo">Vishwanandan <span class="text-gray-800">HomeServices</span></a>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/index.html" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                <a href="/services.html" class="text-gray-700 hover:text-indigo-600 transition">Services</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                <a href="/cart.html" class="text-gray-700 hover:text-indigo-600 transition">Cart</a>
+            </div>
+            
+            <!-- Right Side Elements -->
+<div class="flex items-center space-x-3">
+    <span class="phone-number"><i class="fas fa-phone mr-1"></i> +91-8081373707</span>
+    <i id="dark-mode-toggle" class="fa-solid fa-moon text-xl cursor-pointer"></i>
+    
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger ml-4 cursor-pointer md:hidden" id="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="/cart.html">Cart</a>
+</div>
+
+
+<!-- Hero Section - 60%/40% Split -->
+
+<section class="hero-section flex items-center justify-between bg-gradient-to-r from-white to-blue-50 text-gray-800 py-16 px-6 border-b border-gray-200">
+    <div class="container mx-auto flex flex-col md:flex-row items-center gap-10">
+        
+        <!-- Left Side (60%) -->
+        <div class="flex-1" data-aos="fade-right">
+            <div class="bg-green-500 text-white inline-block px-6 py-2 rounded-full text-sm mb-6 animate-pulse shadow-md">
+                Pay Only ₹99 Advance - Balance After Service!
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-gray-900">Professional Home Services in UP</h1>
+            <p class="text-lg text-gray-700 mb-8 max-w-xl">Book trusted professionals for all your home needs with a smooth, modern experience.</p>
+
+            <!-- Search Bar -->
+            <div class="search-bar bg-white rounded-lg shadow-lg p-4 border border-gray-200 flex flex-col md:flex-row items-center gap-4 transition hover:shadow-xl">
+                <div class="relative flex-1">
+                    <input type="text" 
+                           id="serviceSearch"
+                           placeholder="What service do you need?" 
+                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                           autocomplete="off">
+                    <div id="serviceResults" class="hidden absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"></div>
+                </div>
+
+                <div class="relative flex-1">
+                    <input type="text" 
+                           id="locationInput"
+                           placeholder="Enter your location" 
+                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                           autocomplete="off">
+                </div>
+                <a href = "/services.html">
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition w-full md:w-auto">
+                    Search
+                </button>
+                </a>
+            </div>
+            <!-- Book Now Button -->
+<div class="flex justify-center mt-6 mb-12"> 
+    <div class="glow-border">
+        <a href="/services.html">
+        <button id="bookNowButton" class="relative text-white text-xl font-bold py-4 px-12 rounded-full shadow-lg"
+            style="background-color: #0a0a0a;">
+            Book Now
+        </button>
+    </a>
+    </div>
+</div>
+</div>
+
+
+    <!-- Right Side (40%) - Image Grid -->
+<div class="flex-1 hidden md:block" data-aos="fade-left">
+    <div class="grid grid-cols-2 gap-4">
+        <img src="/images/electrical.jpg" alt="Cleaning Service" loading "lazy"class="rounded-lg w-full h-full object-cover">
+        <img src="/images/home.jpg" alt="Repair Service" loading="lazy" class="rounded-lg w-full h-full object-cover">
+        <img src="/images/pest.jpg" alt="Plumbing Service" loading="lazy" class="rounded-lg w-full h-full object-cover">
+        <img src="/images/plumbing.jpg" alt="Electrician Service" loading="lazy" class="rounded-lg w-full h-full object-cover">
+    </div>
+</div>
+</section>
+<br></br>
+<div class="trust-badges py-8 bg-gray-50">
+    <div class="container mx-auto px-4 flex flex-wrap justify-center gap-8">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-shield-alt text-2xl text-green-500"></i>
+        <span>100% Safety Guarantee</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <i class="fas fa-rupee-sign text-2xl text-blue-500"></i>
+        <span>No Hidden Charges</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <i class="fas fa-clock text-2xl text-purple-500"></i>
+        <span>24/7 Availability</span>
+      </div>
+    </div>
+  </div>
+  
+
+<body class="cst_x56d9b_form_body">
+    <div class="cst_x56d9b_form_wrapper">
+      <div class="cst_x56d9b_form_container">
+        <h2 class="cst_x56d9b_form_heading">Book Your Service</h2>
+        <form id="cst_x56d9b_booking_form">
+          <div class="cst_x56d9b_input_group">
+            <label class="cst_x56d9b_form_label" for="cst_x56d9b_name">Name</label>
+            <input type="text" id="cst_x56d9b_name" class="cst_x56d9b_form_input" placeholder="Enter your name">
+            <div class="cst_x56d9b_error_message" id="cst_x56d9b_name_error"></div>
+          </div>
+          
+          <div class="cst_x56d9b_input_group">
+            <label class="cst_x56d9b_form_label" for="cst_x56d9b_mobile">Mobile Number</label>
+            <input type="tel" id="cst_x56d9b_mobile" class="cst_x56d9b_form_input" placeholder="Enter your mobile number">
+            <div class="cst_x56d9b_error_message" id="cst_x56d9b_mobile_error"></div>
+          </div>
+          
+          <div class="cst_x56d9b_input_group">
+            <label class="cst_x56d9b_form_label" for="cst_x56d9b_service">Service</label>
+            <select id="cst_x56d9b_service" class="cst_x56d9b_form_select">
+              <option value="" disabled selected></option>
+              <option value="Cleaning">Cleaning</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Painting">Painting</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="cst_x56d9b_error_message" id="cst_x56d9b_service_error"></div>
+          </div>
+          
+          <div class="cst_x56d9b_input_group">
+            <label class="cst_x56d9b_form_label" for="cst_x56d9b_address">Address</label>
+            <textarea id="cst_x56d9b_address" class="cst_x56d9b_form_textarea" rows="3" placeholder="Enter your address"></textarea>
+            <div class="cst_x56d9b_error_message" id="cst_x56d9b_address_error"></div>
+          </div>
+          
+          <div class="cst_x56d9b_input_group">
+            <label class="cst_x56d9b_form_label" for="cst_x56d9b_datetime">Date & Time</label>
+            <input type="datetime-local" id="cst_x56d9b_datetime" class="cst_x56d9b_form_input">
+            <div class="cst_x56d9b_error_message" id="cst_x56d9b_datetime_error"></div>
+          </div>
+          
+          <a href = "https://wa.me/918081373707"><button type="button" id="cst_x56d9b_continue_btn" class="cst_x56d9b_submit_button">Continue to WhatsApp</button></a>
+        
+        </form>   
+        <div class="cst_x56d9b_loading_indicator" id="cst_x56d9b_loading">
+          <div class="cst_x56d9b_loading_circle"></div>
+          <p>Processing your request...</p>
+        </div>
+      </div>
+      <div class="testimonial-container-xYz78" id="testimonial-container">
+        <div class="cursor-oPz98" id="cursor"></div>
+        
+        <div class="testimonial-slider-pQw34" id="testimonial-slider">
+          <div class="testimonial-rTf56 active-Kl90o">
+            <div class="quote-mNp21">Our company saw a <span class="highlight-word-qWe54">300% increase</span> in customer engagement after implementing this solution. The simplicity and effectiveness impressed our entire team.</div>
+            <div class="rating-fGh32">
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+            </div>
+            <div class="author-cXz67">Sarah Johnson</div>
+            <div class="company-vBn89">Marketing Director, TechCorp</div>
+          </div>
+          
+          <div class="testimonial-rTf56">
+            <div class="quote-mNp21">We've tried many options but this was the only product that <span class="highlight-word-qWe54">actually delivered</span> on its promises. Customer support was exceptional throughout implementation.</div>
+            <div class="rating-fGh32">
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12"></div>
+            </div>
+            <div class="author-cXz67">Michael Chen</div>
+            <div class="company-vBn89">CTO, Innovative Solutions</div>
+          </div>
+          
+          <div class="testimonial-rTf56">
+            <div class="quote-mNp21">The <span class="highlight-word-qWe54">reliability</span> and ease of use set this apart from competitors. We've been using it for over two years with zero downtime or issues.</div>
+            <div class="rating-fGh32">
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+              <div class="star-tYu12 filled-LoI87"></div>
+            </div>
+            <div class="author-cXz67">Alexandra Rivera</div>
+            <div class="company-vBn89">Operations Manager, Global Enterprises</div>
+          </div>
+        </div>
+        
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div class="controls-lPq23">
+          <button class="nav-btn-wEr71" id="prev-btn">&#8249;</button>
+          <div id="dots-container"></div>
+          <button class="nav-btn-wEr71" id="next-btn">&#8250;</button>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+     <!-- Features Section -->
+     <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Why Choose Vishwanandan Home Services?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">We connect you with verified professionals to get your job done right. Experience the convenience of booking services online.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="150">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-check-circle text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Verified Professionals</h3>
+                    <p class="text-gray-600">All our service providers undergo strict background checks and verification process.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">100% Quality Guarantee</h3>
+                    <p class="text-gray-600">Not satisfied with the service? We offer a 100% money-back guarantee.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="450">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Same-Day Service</h3>
+                    <p class="text-gray-600">Emergency? Our professionals can reach you within hours of booking.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-indigo-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-tag text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Transparent Pricing</h3>
+                    <p class="text-gray-600">No hidden charges. Pay only for the services you book.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Popular Services Section (Enhanced) -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Popular Services</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Book our most requested services with just a few clicks.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Service Card 1 -->
+            <a href="/services.html" class="service-card block bg-white shadow-md p-6 rounded-lg animate__animated animate__fadeInUp animate__delay-1s">
+                <img src="/images/home.jpg" alt="Home Cleaning" loading = "lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-bold">Home Cleaning</h3>
+                <p class="text-gray-600">Comprehensive cleaning for your home.</p>
+                <button class="book-buttona">Book Now</button>
+            </a>
+
+            <!-- Service Card 2 -->
+            <a href="/services.html" class="service-card block bg-white shadow-md p-6 rounded-lg animate__animated animate__fadeInUp animate__delay-2s">
+                <img src="/images/plumbing.jpg" alt="Plumbing Services" loading = "lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-bold">Plumbing Services</h3>
+                <p class="text-gray-600">Fix leaks, unclog pipes, and more for your home.</p>
+                <button class="book-buttona">Book Now</button>
+            </a>
+
+            <!-- Service Card 3 -->
+            <a href="/services.html" class="service-card block bg-white shadow-md p-6 rounded-lg animate__animated animate__fadeInUp animate__delay-3s">
+                <img src="/images/electrical.jpg" alt="Electrical Services" loading = "lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-bold">Electrical Services</h3>
+                <p class="text-gray-600">24/7 Emergency Electrical Services at your convenience.</p>
+                <button class="book-buttona">Book Now</button>
+            </a>
+
+            <!-- Service Card 4 -->
+            <a href="/services.html" class="service-card block bg-white shadow-md p-6 rounded-lg animate__animated animate__fadeInUp animate__delay-4s">
+                <img src="/images/carpentry.jpg" alt="Painting Services" loading = "lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-bold">Carpentry Services</h3>
+                <p class="text-gray-600">Best Capentery Services for your home.</p>
+                <button class="book-buttona">Book Now</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">What Our Customers Say</h2>
+                <p class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Join thousands of satisfied customers who trust Vishwanandan Home Services</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex items-center mb-4">
+                        <img src="https://source.unsplash.com/100x100/?person" alt="User" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">RAhul Gandhi</h4>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"The best service I've ever experienced! The electrician arrived on time and fixed the issue in minutes."</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://source.unsplash.com/100x100/?man" alt="User" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Mamta Banerjee</h4>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Quick, professional, and affordable. Will definitely use Vishwanandan Home Services again!"</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="450">
+                    <div class="flex items-center mb-4">
+                        <img src="https://source.unsplash.com/100x100/?woman" alt="User" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Narendra Modi</h4>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Their cleaning service transformed my home. Worth every penny!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Payment Process Section -->
+        <section class="py-16 bg-indigo-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Our Payment Process</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg text-center" data-aos="fade-up">
+                        <div class="bg-indigo-100 w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-search text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">1. Book Service</h3>
+                        <p class="text-gray-600 text-sm">Select your required service</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-indigo-100 w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-wallet text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">2. Pay ₹99 Advance</h3>
+                        <p class="text-gray-600 text-sm">Secure your booking</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-indigo-100 w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-user-check text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">3. Service Delivery</h3>
+                        <p class="text-gray-600 text-sm">Professional arrives on-time</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-indigo-100 w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-rupee-sign text-indigo-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">4. Pay Balance</h3>
+                        <p class="text-gray-600 text-sm">Only after service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Vishwanandan Home Services</h4>
+                    <p class="text-gray-400">Your trusted partner for home services since 2020</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Safety Center</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates and special offers</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l-lg w-full">
+                        <button class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-lg">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Vishwanandan Home Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Help Button -->
+    <div class="floating-help">
+        <a href="https://wa.me/918081373707" target="_blank" class="bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition">
+            <i class="fas fa-comment-dots text-xl"></i>
+        </a>
+        
+    </div>
+
+   
+ <script>
+
+
+AOS.init({
+    duration: 800,
+    once: true,
+});
+
+// Loader Handling
+document.addEventListener('DOMContentLoaded', () => {
+    const loaderContainer = document.getElementById('loaderContainer');
+    const loadingBar = document.getElementById('loadingBar');
+    const images = document.querySelectorAll('img');
+    let loadedImages = 0;
+
+    // Check if an image is cached in LocalStorage
+    function isImageCached(src) {
+        return localStorage.getItem(src) === 'loaded';
+    }
+
+    // Mark an image as cached
+    function cacheImage(src) {
+        try {
+            localStorage.setItem(src, 'loaded');
+        } catch (e) {
+            console.warn('LocalStorage limit reached. Clearing old entries...');
+            localStorage.clear();  // Clear cache if it's full
+            localStorage.setItem(src, 'loaded');  // Store the new image again
+        }
+    }
+
+    // Update the loading bar progress
+    function updateLoadingBar() {
+        const progress = (loadedImages / images.length) * 100;
+        loadingBar.style.width = `${progress}%`;
+
+        if (progress === 100) {
+            setTimeout(() => {
+                loaderContainer.style.display = 'none';
+            }, 500);
+        }
+    }
+
+    // Check all images and load them if not cached
+    images.forEach(image => {
+        const src = image.src;
+
+        if (isImageCached(src)) {
+            // Image is cached, count it as loaded
+            loadedImages++;
+            updateLoadingBar();
+        } else {
+            // Image is not cached, load normally
+            if (image.complete) {
+                loadedImages++;
+                cacheImage(src);
+                updateLoadingBar();
+            } else {
+                image.addEventListener('load', () => {
+                    loadedImages++;
+                    cacheImage(src);
+                    updateLoadingBar();
+                });
+
+                image.addEventListener('error', () => {
+                    loadedImages++;
+                    updateLoadingBar();
+                });
+            }
+        }
+    });
+});
+
+
+const slider = document.getElementById('testimonial-slider');
+    const testimonials = document.querySelectorAll('.testimonial-rTf56');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dotsContainer = document.getElementById('dots-container');
+    const cursor = document.getElementById('cursor');
+    const container = document.getElementById('testimonial-container');
+    
+    let currentIndex = 0;
+    let isAnimating = false;
+    let autoplayInterval;
+    let startX;
+    let isDragging = false;
+    
+    // Create navigation dots
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('nav-dot-hJk45');
+      if (index === 0) dot.classList.add('active-Kl90o');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.nav-dot-hJk45');
+    
+    // Function to go to a specific slide
+    function goToSlide(index) {
+      if (isAnimating || index === currentIndex) return;
+      
+      isAnimating = true;
+      
+      // Update active classes
+      testimonials[currentIndex].classList.remove('active-Kl90o');
+      dots[currentIndex].classList.remove('active-Kl90o');
+      
+      currentIndex = index;
+      
+      testimonials[currentIndex].classList.add('active-Kl90o');
+      dots[currentIndex].classList.add('active-Kl90o');
+      
+      // Move the slider
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Reset animation state after transition
+      setTimeout(() => {
+        isAnimating = false;
+      }, 600);
+    }
+    
+    // Next and Previous button handlers
+    prevBtn.addEventListener('click', () => {
+      const index = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      goToSlide(index);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      const index = (currentIndex + 1) % testimonials.length;
+      goToSlide(index);
+    });
+    
+    // Custom cursor effect
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      cursor.style.left = `${e.clientX - rect.left}px`;
+      cursor.style.top = `${e.clientY - rect.top}px`;
+      
+      if (isDragging) {
+        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      } else {
+        cursor.style.transform = 'translate(-50%, -50%)';
+      }
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+    });
+    
+    container.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '0.5';
+    });
+    
+    // Touch and drag functionality
+    container.addEventListener('mousedown', startDrag);
+    container.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startDrag(e.touches[0]);
+    });
+    
+    function startDrag(e) {
+      isDragging = true;
+      startX = e.clientX || e.touches[0].clientX;
+      cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      
+      // Pause autoplay when user interacts
+      clearInterval(autoplayInterval);
+    }
+    
+    window.addEventListener('mousemove', drag);
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging) {
+        e.preventDefault();
+        drag(e.touches[0]);
+      }
+    });
+    
+    function drag(e) {
+      if (!isDragging) return;
+      
+      const currentX = e.clientX || e.touches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Add some resistance to the drag
+      slider.style.transform = `translateX(calc(-${currentIndex * 100}% - ${diff * 0.2}px))`;
+    }
+    
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('touchend', endDrag);
+    
+    function endDrag() {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      cursor.style.transform = 'translate(-50%, -50%)';
+      
+      const currentX = event.clientX || event.changedTouches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Determine if user has dragged far enough to change slides
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // Dragged left, go to next slide
+          goToSlide((currentIndex + 1) % testimonials.length);
+        } else {
+          // Dragged right, go to previous slide
+          goToSlide((currentIndex - 1 + testimonials.length) % testimonials.length);
+        }
+      } else {
+        // Not dragged far enough, revert to current slide
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+      
+      // Restart autoplay
+      startAutoplay();
+    }
+    
+    // Autoplay functionality
+    function startAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(() => {
+        goToSlide((currentIndex + 1) % testimonials.length);
+      }, 5000);
+    }
+    
+    // Initialize autoplay
+    startAutoplay();
+    
+    // Stop autoplay when interacting with controls
+    const controls = document.querySelectorAll('.nav-btn-wEr71, .nav-dot-hJk45');
+    controls.forEach(control => {
+      control.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+      });
+      
+      control.addEventListener('mouseleave', () => {
+        startAutoplay();
+      });
+    });
+    
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      }
+    });
+
+
+
+
+
+
+// Dark Mode Toggle Logic
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+if (localStorage.getItem('darkMode') === 'enabled') {
+    DarkReader.enable({
+        brightness: 100,
+        contrast: 90,
+        sepia: 10
+    });
+    darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+}
+
+darkModeToggle.addEventListener('click', () => {
+    if (DarkReader.isEnabled()) {
+        DarkReader.disable();
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.classList.replace('fa-sun', 'fa-moon');
+    } else {
+        DarkReader.enable({
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+    }
+    setTimeout(() => {
+        if (document.body.classList.contains('dark-mode')) {
+            document.querySelectorAll('.hamburger div').forEach(div => {
+                div.style.backgroundColor = 'white';
+            });
+        } else {
+            document.querySelectorAll('.hamburger div').forEach(div => {
+                div.style.backgroundColor = 'black';
+            });
+        }
+    }, 1);
+});
+
+// Service Data for Search Functionality
+const services = [
+    "Home Cleaning", "Deep Cleaning", "Bathroom Cleaning",
+    "Kitchen Cleaning", "Plumbing Services", "Electrical Repairs",
+    "AC Repair", "Painting Services", "Carpentry Services",
+    "Pest Control", "Appliance Repair", "Carpet Cleaning"
+];
+
+// DOM Elements
+const serviceSearch = document.getElementById('serviceSearch');
+const serviceResults = document.getElementById('serviceResults');
+const locationInput = document.getElementById('locationInput');
+
+//Service Search Functionality (Your Original Code)
+serviceSearch.addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const filteredServices = services.filter(service => 
+        service.toLowerCase().includes(searchTerm)
+    ).slice(0, 5);
+
+    if (filteredServices.length > 0) {
+        serviceResults.innerHTML = filteredServices.map(service => `
+            <div class="p-3 hover:bg-gray-100 cursor-pointer">${service}</div>
+        `).join('');
+        serviceResults.classList.remove('hidden');
+    } else {
+        serviceResults.classList.add('hidden');
+    }
+});
+
+serviceResults.addEventListener('click', function(e) {
+    if (e.target && e.target.matches('div')) {
+        serviceSearch.value = e.target.textContent;
+        serviceResults.classList.add('hidden');
+    }
+});
+
+document.addEventListener('click', function(event) {
+    if (!serviceResults.contains(event.target) && event.target !== serviceSearch) {
+        serviceResults.classList.add('hidden');
+    }
+});
+
+// Location Input Handling
+locationInput.addEventListener('click', function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+});
+
+function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    locationInput.value = `Lat: ${lat}, Lon: ${lon}`;
+}
+
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
+
+
+// Mobile Menu Toggle
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburgerMenu.addEventListener('click', () => {
+    hamburgerMenu.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
+
+
+
+// Typewriter Effect for Placeholder Text
+const placeholderServices = [
+    "Home Cleaning", "Deep Cleaning", "Plumbing Services", 
+    "Electrical Repairs", "AC Repair", "Painting Services",
+    "Carpentry Services", "Pest Control", "Appliance Repair"
+];
+const serviceSearchInput = document.getElementById('serviceSearch');
+
+let currentTextIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+
+function typePlaceholder() {
+    const currentText = placeholderServices[currentTextIndex];
+    if (isDeleting) {
+        serviceSearchInput.setAttribute("placeholder", `Search for '${currentText.slice(0, currentCharIndex)}'`);
+        currentCharIndex--;
+
+        if (currentCharIndex < 0) {
+            isDeleting = false;
+            currentTextIndex = (currentTextIndex + 1) % placeholderServices.length;
+            setTimeout(typePlaceholder, 500);
+        } else {
+            setTimeout(typePlaceholder, 50);
+        }
+    } else {
+        serviceSearchInput.setAttribute("placeholder", `Search for '${currentText.slice(0, currentCharIndex)}'`);
+        currentCharIndex++;
+
+        if (currentCharIndex > currentText.length) {
+            isDeleting = true;
+            setTimeout(typePlaceholder, 1000);
+        } else {
+            setTimeout(typePlaceholder, 100);
+        }
+    }
+}
+
+typePlaceholder();
+
+document.getElementById('cst_x56d9b_continue_btn').addEventListener('click', function(e) {
+      // Manual form validation
+      let isValid = true;
+      
+      // Check name
+      const name = document.getElementById('cst_x56d9b_name').value;
+      if (!name) {
+        document.getElementById('cst_x56d9b_name_error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('cst_x56d9b_name_error').style.display = 'none';
+      }
+      
+      // Check mobile
+      const mobile = document.getElementById('cst_x56d9b_mobile').value;
+      if (!mobile) {
+        document.getElementById('cst_x56d9b_mobile_error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('cst_x56d9b_mobile_error').style.display = 'none';
+      }
+      
+      // Check service
+      const service = document.getElementById('cst_x56d9b_service').value;
+      if (!service) {
+        document.getElementById('cst_x56d9b_service_error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('cst_x56d9b_service_error').style.display = 'none';
+      }
+      
+      // Check address
+      const address = document.getElementById('cst_x56d9b_address').value;
+      if (!address) {
+        document.getElementById('cst_x56d9b_address_error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('cst_x56d9b_address_error').style.display = 'none';
+      }
+      
+      // Check datetime
+      const datetime = document.getElementById('cst_x56d9b_datetime').value;
+      if (!datetime) {
+        document.getElementById('cst_x56d9b_datetime_error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('cst_x56d9b_datetime_error').style.display = 'none';
+      }
+      
+      // If all fields are valid, proceed
+      if (isValid) {
+        // Show loading animation
+        document.getElementById('cst_x56d9b_loading').style.display = 'block';
+        document.getElementById('cst_x56d9b_continue_btn').style.opacity = '0.7';
+        
+        // Format date for display
+        const formattedDate = new Date(datetime).toLocaleString();
+        
+        // Create message for WhatsApp
+        const message = `Hello! I would like to book a service:
+        
+Name: ${name}
+Mobile: ${mobile}
+Service: ${service}
+Address: ${address}
+Date & Time: ${formattedDate}`;
+        
+        // Encode the message for WhatsApp URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Simulate processing delay
+        setTimeout(function() {
+          // Redirect to WhatsApp
+          window.location.href = `https://wa.me/?text=${encodedMessage}`;
+        }, 1000);
+      }
+    });
+
+
+
+
+async function fetchServices() {
+            try {
+                const response = await fetch('/api/services');
+                const services = await response.json();
+
+                const servicesContainer = document.getElementById('popularServices');
+                servicesContainer.innerHTML = services.map(service => `
+                    <div class="service-card bg-white rounded-lg shadow-md">
+                        <img src="${service.image}" alt="${service.title}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold">${service.title}</h3>
+                            <p class="text-gray-600 mb-4">${service.description}</p>
+                            <span class="text-indigo-600 font-semibold">Starting at ₹${service.price}</span>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error("Failed to fetch services:", error);
+            }
+        }
+
+        async function searchServices(query) {
+            if (!query) {
+                document.getElementById('serviceResults').classList.add('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/search?q=${query}`);
+                const results = await response.json();
+
+                const resultDiv = document.getElementById('serviceResults');
+                if (results.length > 0) {
+                    resultDiv.innerHTML = results.map(service => `
+                        <div class="p-2 hover:bg-gray-200 cursor-pointer">${service.title}</div>
+                    `).join('');
+                    resultDiv.classList.remove('hidden');
+                } else {
+                    resultDiv.innerHTML = '<div class="p-2 text-gray-500">No services found</div>';
+                    resultDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error("Search failed:", error);
+            }
+        }
+        
+
+
+// Show loader on page load
+document.getElementById('loaderContainer').style.display = 'flex';
+
+// Hide loader when the page is fully loaded
+window.addEventListener('load', function() {
+    document.getElementById('loaderContainer').style.display = 'none';
+});
+
+// Interactive Room Selection
+document.querySelectorAll('.cst_x56d9b_room').forEach(room => {
+    room.addEventListener('click', function() {
+        document.querySelectorAll('.cst_x56d9b_room').forEach(r => r.classList.remove('active'));
+        this.classList.add('active');
+        updatePriceEstimate();
+    });
+});
+
+// Price Calculation Logic
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

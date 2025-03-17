@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Testimonial Showcase</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    .testimonial-container-xYz78 {
+      width: 100%;
+      height: 400px;
+      background-color: #111;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    .testimonial-slider-pQw34 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    .testimonial-rTf56 {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      position: relative;
+      opacity: 0.4;
+      transform: scale(0.85);
+      transition: all 0.6s ease;
+    }
+    
+    .testimonial-rTf56.active-Kl90o {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .quote-mNp21 {
+      font-size: 22px;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .quote-mNp21::before,
+    .quote-mNp21::after {
+      content: '"';
+      font-size: 60px;
+      position: absolute;
+      opacity: 0.2;
+    }
+    
+    .quote-mNp21::before {
+      top: -40px;
+      left: -20px;
+    }
+    
+    .quote-mNp21::after {
+      bottom: -70px;
+      right: -20px;
+    }
+    
+    .author-cXz67 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    
+    .company-vBn89 {
+      font-size: 14px;
+      color: #999;
+      margin-top: 5px;
+    }
+    
+    .controls-lPq23 {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .nav-dot-hJk45 {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dot-hJk45.active-Kl90o {
+      background-color: white;
+      transform: scale(1.5);
+    }
+    
+    .nav-btn-wEr71 {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-btn-wEr71:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    .rating-fGh32 {
+      display: flex;
+      margin-top: 15px;
+      gap: 5px;
+    }
+    
+    .star-tYu12 {
+      width: 20px;
+      height: 20px;
+      background-color: #333;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      transition: background-color 0.3s ease;
+    }
+    
+    .star-tYu12.filled-LoI87 {
+      background-color: #ffdd00;
+    }
+    
+    .highlight-word-qWe54 {
+      position: relative;
+      color: #fff;
+      font-weight: bold;
+      z-index: 1;
+    }
+    
+    .highlight-word-qWe54::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      z-index: -1;
+      transition: width 0.5s ease;
+    }
+    
+    .active-Kl90o .highlight-word-qWe54::after {
+      width: 100%;
+    }
+    
+    .cursor-oPz98 {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border: 2px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.1s ease;
+      z-index: 100;
+    }
+    
+    .testimonial-container-xYz78:hover .cursor-oPz98 {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="testimonial-container-xYz78" id="testimonial-container">
+    <div class="cursor-oPz98" id="cursor"></div>
+    
+    <div class="testimonial-slider-pQw34" id="testimonial-slider">
+      <div class="testimonial-rTf56 active-Kl90o">
+        <div class="quote-mNp21">Our company saw a <span class="highlight-word-qWe54">300% increase</span> in customer engagement after implementing this solution. The simplicity and effectiveness impressed our entire team.</div>
+        <div class="rating-fGh32">
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+        </div>
+        <div class="author-cXz67">Sarah Johnson</div>
+        <div class="company-vBn89">Marketing Director, TechCorp</div>
+      </div>
+      
+      <div class="testimonial-rTf56">
+        <div class="quote-mNp21">We've tried many options but this was the only product that <span class="highlight-word-qWe54">actually delivered</span> on its promises. Customer support was exceptional throughout implementation.</div>
+        <div class="rating-fGh32">
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12"></div>
+        </div>
+        <div class="author-cXz67">Michael Chen</div>
+        <div class="company-vBn89">CTO, Innovative Solutions</div>
+      </div>
+      
+      <div class="testimonial-rTf56">
+        <div class="quote-mNp21">The <span class="highlight-word-qWe54">reliability</span> and ease of use set this apart from competitors. We've been using it for over two years with zero downtime or issues.</div>
+        <div class="rating-fGh32">
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+          <div class="star-tYu12 filled-LoI87"></div>
+        </div>
+        <div class="author-cXz67">Alexandra Rivera</div>
+        <div class="company-vBn89">Operations Manager, Global Enterprises</div>
+      </div>
+    </div>
+    
+    <div class="controls-lPq23">
+      <button class="nav-btn-wEr71" id="prev-btn">&#8249;</button>
+      <div id="dots-container"></div>
+      <button class="nav-btn-wEr71" id="next-btn">&#8250;</button>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('testimonial-slider');
+    const testimonials = document.querySelectorAll('.testimonial-rTf56');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dotsContainer = document.getElementById('dots-container');
+    const cursor = document.getElementById('cursor');
+    const container = document.getElementById('testimonial-container');
+    
+    let currentIndex = 0;
+    let isAnimating = false;
+    let autoplayInterval;
+    let startX;
+    let isDragging = false;
+    
+    // Create navigation dots
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('nav-dot-hJk45');
+      if (index === 0) dot.classList.add('active-Kl90o');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.nav-dot-hJk45');
+    
+    // Function to go to a specific slide
+    function goToSlide(index) {
+      if (isAnimating || index === currentIndex) return;
+      
+      isAnimating = true;
+      
+      // Update active classes
+      testimonials[currentIndex].classList.remove('active-Kl90o');
+      dots[currentIndex].classList.remove('active-Kl90o');
+      
+      currentIndex = index;
+      
+      testimonials[currentIndex].classList.add('active-Kl90o');
+      dots[currentIndex].classList.add('active-Kl90o');
+      
+      // Move the slider
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Reset animation state after transition
+      setTimeout(() => {
+        isAnimating = false;
+      }, 600);
+    }
+    
+    // Next and Previous button handlers
+    prevBtn.addEventListener('click', () => {
+      const index = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      goToSlide(index);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      const index = (currentIndex + 1) % testimonials.length;
+      goToSlide(index);
+    });
+    
+    // Custom cursor effect
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      cursor.style.left = `${e.clientX - rect.left}px`;
+      cursor.style.top = `${e.clientY - rect.top}px`;
+      
+      if (isDragging) {
+        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      } else {
+        cursor.style.transform = 'translate(-50%, -50%)';
+      }
+    });
+    
+    container.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+    });
+    
+    container.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '0.5';
+    });
+    
+    // Touch and drag functionality
+    container.addEventListener('mousedown', startDrag);
+    container.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startDrag(e.touches[0]);
+    });
+    
+    function startDrag(e) {
+      isDragging = true;
+      startX = e.clientX || e.touches[0].clientX;
+      cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      
+      // Pause autoplay when user interacts
+      clearInterval(autoplayInterval);
+    }
+    
+    window.addEventListener('mousemove', drag);
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging) {
+        e.preventDefault();
+        drag(e.touches[0]);
+      }
+    });
+    
+    function drag(e) {
+      if (!isDragging) return;
+      
+      const currentX = e.clientX || e.touches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Add some resistance to the drag
+      slider.style.transform = `translateX(calc(-${currentIndex * 100}% - ${diff * 0.2}px))`;
+    }
+    
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('touchend', endDrag);
+    
+    function endDrag() {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      cursor.style.transform = 'translate(-50%, -50%)';
+      
+      const currentX = event.clientX || event.changedTouches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Determine if user has dragged far enough to change slides
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // Dragged left, go to next slide
+          goToSlide((currentIndex + 1) % testimonials.length);
+        } else {
+          // Dragged right, go to previous slide
+          goToSlide((currentIndex - 1 + testimonials.length) % testimonials.length);
+        }
+      } else {
+        // Not dragged far enough, revert to current slide
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+      
+      // Restart autoplay
+      startAutoplay();
+    }
+    
+    // Autoplay functionality
+    function startAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(() => {
+        goToSlide((currentIndex + 1) % testimonials.length);
+      }, 5000);
+    }
+    
+    // Initialize autoplay
+    startAutoplay();
+    
+    // Stop autoplay when interacting with controls
+    const controls = document.querySelectorAll('.nav-btn-wEr71, .nav-dot-hJk45');
+    controls.forEach(control => {
+      control.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+      });
+      
+      control.addEventListener('mouseleave', () => {
+        startAutoplay();
+      });
+    });
+    
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevBtn.click();
+      } else if (e.key === 'ArrowRight') {
+        nextBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

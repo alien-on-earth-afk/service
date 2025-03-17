@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Vishwanandan Home Services</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- DarkReader Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/darkreader/4.9.58/darkreader.min.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <body class="bg-gray-50">
+        <!-- Loader -->
+       <div id="loaderContainer">
+           <div id="loadingBarContainer">
+               <div id="loadingBar"></div>
+           </div>
+       </div>
+       
+       
+<!-- Navigation Bar -->
+<nav class="navbar-sticky bg-white shadow-md">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-2 md:py-3">
+            <div class="flex items-center">
+                <a href="#" class="text-xl md:text-2xl font-bold text-indigo-600 mobile-logo">Vishwanandan <span class="text-gray-800">HomeServices</span></a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/index.html" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                <a href="/services.html" class="text-gray-700 hover:text-indigo-600 transition">Services</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+                <a href="#" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                <a href="/cart.html" class="text-gray-700 hover:text-indigo-600 transition">Cart</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="phone-number"><i class="fas fa-phone mr-1"></i> +91-8081373707</span>
+                <i id="dark-mode-toggle" class="fa-solid fa-moon text-xl cursor-pointer"></i>
+                <div class="hamburger ml-4 cursor-pointer md:hidden" id="hamburger-menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="/cart.html">Cart</a>
+</div>
+
+
+    <!-- Filters & Search Bar -->
+    <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
+        <div class="flex items-center space-x-4 mb-4 md:mb-0">
+            <select id="categoryFilter" class="border border-gray-300 rounded-lg p-2">
+                <option value="All">All Categories</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Home Repair">Home Repair</option>
+                <option value="Pest Control">Pest Control</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" id="searchInput" placeholder="Search services..." class="border border-gray-300 rounded-lg p-2 w-72">
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="text-gray-600 mb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesContainer"></div>
+        </div>
+    </section>
+
+<!-- Service Modal -->
+<div id="serviceModal">
+    <div class="modal-content">
+        <button id="closeModal" class="float-right text-gray-600 mb-4">✖</button>
+        <img id="modalImage" loading = "lazy" class="w-full h-48 object-cover mb-4 rounded-lg" alt="">
+        <h3 id="modalTitle" class="text-2xl font-bold mb-2"></h3>
+        <p id="modalDescription" class="text-gray-600 mb-6"></p>
+        <div id="modalOptions" class="my-4"></div>
+        <button id="continueBtn">Continue</button>
+    </div>
+</div>
+
+
+    <!-- Back to Home -->
+    <div class="text-center py-6">
+        <a href="/index.html" class="text-indigo-600 hover:underline transition">Back to Home</a>
+    </div>
+
+<script>
+
+function openModal(index) {
+    selectedService = allServices[index];
+    if (!selectedService) return;
+
+    document.body.classList.add('modal-open');
+    const serviceModal = document.getElementById('serviceModal');
+    serviceModal.style.display = 'flex';
+
+    const modalImage = document.getElementById('modalImage');
+    const cachedImage = localStorage.getItem(selectedService.image);
+
+    if (cachedImage === 'loaded') {
+        modalImage.src = selectedService.image;
+    } else {
+        modalImage.removeAttribute('src'); // Ensure it's blank before setting a new source
+
+        setTimeout(() => {  // Short delay to avoid flickering
+            modalImage.src = selectedService.image;
+        }, 50);
+
+        modalImage.onload = () => {
+            cacheImage(selectedService.image);
+        };
+
+        modalImage.onerror = () => {
+            console.error("Image failed to load: " + selectedService.image);
+            modalImage.src = "https://via.placeholder.com/300x200?text=Image+Not+Available";
+        };
+    }
+
+    document.getElementById('modalTitle').textContent = selectedService.title;
+    document.getElementById('modalDescription').textContent = selectedService.aiDescription;
+
+
+    const optionsContainer = document.getElementById('modalOptions');
+optionsContainer.innerHTML = selectedService.options.map(option => `
+    <label>
+        <input type="checkbox" value="${option.name}" class="option-checkbox" data-price="${option.price}" checked>
+        ${option.name} (₹${option.price})
+    </label><br>
+`).join('');
+
+
+
+    // Hide Hamburger on Modal Open
+    hamburgerMenu.style.display = 'none';
+    mobileMenu.classList.remove('active');
+}
+
+
+document.getElementById('closeModal').addEventListener('click', () => {
+    document.body.classList.remove('modal-open');
+    document.getElementById('serviceModal').style.display = 'none';
+    hamburgerMenu.style.display = 'flex'; // Show hamburger again
+    mobileMenu.classList.remove('active'); // Close mobile menu if it was open
+});
+
+
+
+document.getElementById('continueBtn').addEventListener('click', () => {
+    const selectedOptions = Array.from(document.querySelectorAll('.option-checkbox:checked'))
+        .map(option => ({
+            name: option.value,
+            price: parseInt(option.getAttribute('data-price')) || 0
+        }));
+
+    const selectedServiceData = {
+        title: selectedService.title,
+        description: selectedService.aiDescription,
+        options: selectedOptions,
+        basePrice: selectedService.price
+    };
+
+    localStorage.setItem('selectedService', JSON.stringify(selectedServiceData));
+    window.location.href = '/cart.html';
+});
+
+
+
+//dark
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let allServices = [];
+    let selectedService = null;
+
+    // Dark Mode Handling
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        DarkReader.enable({
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+        darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+        document.body.classList.add('dark-mode');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        if (DarkReader.isEnabled()) {
+            DarkReader.disable();
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.classList.replace('fa-sun', 'fa-moon');
+            document.body.classList.remove('dark-mode');
+        } else {
+            DarkReader.enable({
+                brightness: 100,
+                contrast: 90,
+                sepia: 10
+            });
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeToggle.classList.replace('fa-moon', 'fa-sun');
+            document.body.classList.add('dark-mode');
+        }
+    });
+
+ // Hamburger Menu Handling
+  hamburgerMenu.addEventListener('click', () => {
+        hamburgerMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        hamburgerMenu.style.zIndex = hamburgerMenu.classList.contains('active') ? '10001' : '10000';
+ });
+
+    // Fetching Services
+    async function fetchServices() {
+        try {
+            const response = await fetch('/api/services');
+            allServices = await response.json();
+            displayServices(allServices);
+        } catch (error) {
+            console.error("Failed to fetch services:", error);
+        }
+    }
+
+
+        async function fetchServices() {
+            try {
+                const response = await fetch('/api/services');
+                allServices = await response.json();
+                displayServices(allServices);
+            } catch (error) {
+                console.error('Failed to fetch services:', error);
+            }
+        }
+
+        function displayServices(services) {
+            const servicesContainer = document.getElementById('servicesContainer');
+            servicesContainer.innerHTML = services.map((service, index) => `
+                <div class="service-card bg-white shadow-md p-6 cursor-pointer" data-index="${index}">
+                    <img src="${service.image}" alt="${service.title}" loading="lazy" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold">${service.title}</h3>
+                    <p class="text-gray-600 mb-2">${service.description}</p>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', event => {
+                    const index = card.getAttribute('data-index');
+                    if (index !== null && allServices[index]) {
+                        openModal(index);
+                    }
+                });
+            });
+        }
+
+    // Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+        const filter = searchInput.value.toLowerCase();
+        if (!filter) {
+            displayServices(allServices);
+            return;
+        }
+        const filteredServices = allServices.filter(service =>
+            service.title.toLowerCase().includes(filter)
+        );
+        displayServices(filteredServices);
+    });
+
+    // 5. Lazy Loading for Images
+    document.addEventListener("DOMContentLoaded", function() {
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        if ("IntersectionObserver" in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute("data-src");
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    });
+
+// Loader Handling for Services Page
+document.addEventListener('DOMContentLoaded', () => {
+    const loaderContainer = document.getElementById('loaderContainer');
+    const loadingBar = document.getElementById('loadingBar');
+    const images = document.querySelectorAll('img');
+    let loadedImages = 0;
+
+    function isImageCached(src) {
+        return localStorage.getItem(src) === 'loaded';
+    }
+
+    function cacheImage(src) {
+        try {
+            localStorage.setItem(src, 'loaded');
+        } catch (e) {
+            console.warn('LocalStorage limit reached. Clearing cache...');
+            localStorage.clear();
+            localStorage.setItem(src, 'loaded');
+        }
+    }
+
+    function updateLoadingBar() {
+        const progress = (loadedImages / images.length) * 100;
+        loadingBar.style.width = `${progress}%`;
+
+        if (progress === 100) {
+            setTimeout(() => {
+                loaderContainer.style.display = 'none';
+            }, 500);
+        }
+    }
+
+    images.forEach(image => {
+        const src = image.src;
+
+        if (isImageCached(src)) {
+            loadedImages++;
+            updateLoadingBar();
+        } else {
+            if (image.complete) {
+                loadedImages++;
+                cacheImage(src);
+                updateLoadingBar();
+            } else {
+                image.addEventListener('load', () => {
+                    loadedImages++;
+                    cacheImage(src);
+                    updateLoadingBar();
+                });
+
+                image.addEventListener('error', () => {
+                    loadedImages++;
+                    updateLoadingBar();
+                });
+            }
+        }
+    });
+});
+
+
+fetchServices();
+
+</script>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+

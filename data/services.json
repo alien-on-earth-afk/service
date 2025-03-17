@@ -1,0 +1,137 @@
+[
+    {
+        "title": "Cleaning Services",
+        "description": "Professional cleaning services for homes and offices.",
+        "aiDescription": "Experience a spotless environment with our comprehensive cleaning solutions.",
+        "price": 699,
+        "category": "Cleaning",
+        "image": "/images/home.jpg",
+        "options": [
+            { "name": "Window Cleaning", "price": 199 },
+            { "name": "Emergency Cleaning", "price": 499 },
+            { "name": "Residential Cleaning", "price": 399 }
+        ]
+    },
+    {
+        "title": "Beautician Services",
+        "description": "Parlor-quality beauty care at your home.",
+        "aiDescription": "Get the perfect beauty treatment from skilled beauticians in the comfort of your home.",
+        "price": 2199,
+        "category": "Beauty",
+        "image": "/images/beauty.jpg",
+        "options": [
+            { "name": "Facial & Skincare", "price": 699 },
+            { "name": "Waxing & Threading", "price": 299 },
+            { "name": "Manicure & Pedicure", "price": 499 },
+            { "name": "Hair Care & Styling", "price": 599 },
+            { "name": "Bridal & Party Makeup", "price": 1499 }
+        ]
+    },
+    {
+        "title": "Electrician Services",
+        "description": "Electrical repairs, wiring, installations, and maintenance.",
+        "aiDescription": "Reliable solutions for all your electrical needs, ensuring safety and efficiency.",
+        "price": 1599,
+        "category": "Electrical",
+        "image": "/images/electrical.jpg",
+        "options": [
+            { "name": "Wiring & Rewiring", "price": 799 },
+            { "name": "Electrical Repair", "price": 399 },
+            { "name": "Lighting & Fan Installation", "price": 499 },
+            { "name": "Inverter & Solar System Installation", "price": 999 },
+            { "name": "Security & Home Automation", "price": 1199 }
+        ]
+    },
+    {
+        "title": "AC & Home Appliance Services",
+        "description": "Installation, servicing, and repair of various home appliances.",
+        "aiDescription": "Get your appliances running smoothly with expert repair and maintenance services.",
+        "price": 1999,
+        "category": "Appliances",
+        "image": "/images/appliances.jpg",
+        "options": [
+            { "name": "AC Service & Repair", "price": 599 },
+            { "name": "Refrigerator & Washing Machine Service", "price": 499 },
+            { "name": "Geyser & Water Purifier Service", "price": 399 },
+            { "name": "Microwave & Induction Repair", "price": 399 },
+            { "name": "Home Automation Installation", "price": 1299 }
+        ]
+    },
+    {
+        "title": "Plumber Services",
+        "description": "Professional plumbing solutions for installations and repairs.",
+        "aiDescription": "Quick and reliable plumbing services for all your household needs.",
+        "price": 1299,
+        "category": "Plumbing",
+        "image": "/images/plumbing.jpg",
+        "options": [
+            { "name": "Pipeline Installation & Repair", "price": 499 },
+            { "name": "Tap & Shower Repair", "price": 199 },
+            { "name": "Tank & Motor Fitting", "price": 599 },
+            { "name": "Sink & Washbasin Repair", "price": 399 },
+            { "name": "Bathroom & Toilet Fitting", "price": 699 }
+        ]
+    },
+    {
+        "title": "CCTV Installation Services",
+        "description": "Complete CCTV installation, maintenance, and upgrade services.",
+        "aiDescription": "Ensure your safety with our high-quality CCTV solutions.",
+        "price": 1699,
+        "category": "Security",
+        "image": "/images/cctv.jpg",
+        "options": [
+            { "name": "CCTV Camera Installation", "price": 999 },
+            { "name": "Camera Maintenance & Servicing", "price": 499 },
+            { "name": "DVR/NVR Setup & Configuration", "price": 699 },
+            { "name": "Night Vision & Motion Detection Setup", "price": 1199 },
+            { "name": "Old CCTV System Upgrading", "price": 899 }
+        ]
+    },
+    {
+        "title": "Vehicle Cleaning Services",
+        "description": "Two-wheeler and four-wheeler cleaning services at your doorstep.",
+        "aiDescription": "Give your vehicle a sparkling clean finish with our thorough cleaning services.",
+        "price": 999,
+        "category": "Vehicle Cleaning",
+        "image": "/images/vehicle.jpg",
+        "options": [
+            { "name": "Vehicle Washing", "price": 299 },
+            { "name": "Polishing & Waxing", "price": 399 },
+            { "name": "Interior Cleaning", "price": 299 },
+            { "name": "Tire Cleaning & Check", "price": 199 },
+            { "name": "Engine Cleaning", "price": 499 }
+        ]
+    },
+    {
+        "title": "Home Decor Services",
+        "description": "Complete home decor solutions for beautiful interiors.",
+        "aiDescription": "Transform your space with our stunning decor and renovation services.",
+        "price": 1499,
+        "category": "Home Improvement",
+        "image": "/images/decor.jpg",
+        "options": [
+            { "name": "Shop & Gym Renovation", "price": 1499 },
+            { "name": "PVC Panel Installation", "price": 999 },
+            { "name": "Modular Kitchen", "price": 1999 },
+            { "name": "Wallpaper Installation", "price": 499 },
+            { "name": "Cabinet Washbasin", "price": 699 },
+            { "name": "Aluminum Profile Channel", "price": 999 },
+            { "name": "Wall Lights", "price": 599 }
+        ]
+    },
+    {
+        "title": "Painting Services",
+        "description": "High-quality painting services for interiors and exteriors.",
+        "aiDescription": "Refresh your space with vibrant, precise, and durable painting solutions.",
+        "price": 1999,
+        "category": "Painting",
+        "image": "/images/painting.jpg",
+        "options": [
+            { "name": "Interior Painting", "price": 799 },
+            { "name": "Exterior Painting", "price": 999 },
+            { "name": "Wallpaper Installation", "price": 499 },
+            { "name": "Textured Painting", "price": 1299 },
+            { "name": "Furniture Painting", "price": 599 }
+        ]
+    }
+]
